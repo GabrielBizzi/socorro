@@ -25,7 +25,7 @@ jobs:
       - name: List files
         run: ls ./
       - name: List files
-        run: ls ./android/app/build/outputs/apk/
+        run: ls ./android/app
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
