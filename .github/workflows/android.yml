@@ -21,12 +21,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x android/gradlew
       - name: Build with Gradle
-        run: |
-          cd android
-          ./gradlew assembleRelease
-          ls ./
+        run: ./android/gradlew build
       - name: List files
-        run: ls ./android/app/build/output/apk/
+        run: ls ./
+      - name: List files
+        run: ls ./android/app/build/outputs/apk/
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
