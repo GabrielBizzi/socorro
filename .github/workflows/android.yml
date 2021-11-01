@@ -22,8 +22,10 @@ jobs:
         run: chmod +x android/gradlew
       - name: Build with Gradle
         run: ./android/gradlew build
+      - name: List files
+        run: ls ./android/app/build/outputs/apk/
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
-          name: code-coverage-report
-          path: ./android/app/build/outputs/apk/release/app-release.apk
+          name: app-release.apk
+          path: ./android/app/build/outputs/apk/release/
