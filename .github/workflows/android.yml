@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [beta]
+    branches: [master]
   pull_request:
-    branches: [beta]
+    branches: [master]
 
 jobs:
   build:
@@ -22,9 +22,8 @@ jobs:
         run: chmod +x android/gradlew
       - name: Build with Gradle
         run: ./android/gradlew build
-      - name: Send file apk to discord channel
-        uses: sinshutu/upload-to-discord@v2.0.0
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
         with:
-          args: README.md
+          name: code-coverage-report
+          path: ./android/app/build/outputs/apk/release/app-release.apk
