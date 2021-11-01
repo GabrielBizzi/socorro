@@ -1,0 +1,102 @@
+{
+  "name": "pdaarmazenagem",
+  "version": "0.9",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "dev": "adb shell am start -W -a android.intent.action.VIEW -d 'pdastorage://eyJ1cmwiOiJodHRwOi8vMTg5LjExMy4xNS4xMTg6NDEyNS9hcGkiLCJjb2RpZ29GaWxpYWwiOiIxIiwiY29kZVVzZXIiOiIxIiwic3R5bGUiOiJkYXJrIiwiZW5hYmxlQ2FtZXJhIjoiMCIsInJlZnJlc2hUb2tlbiI6ImU0ODIyNmRkLTU3ZDktNGU3Zi05OTJlLWY4ZmUyNDIwYTgwNyIsImV4cGlyYXRpb24iOjE2MzUxOTI2OTAwNTYuMzc5LCJ2ZXJzYW9NYWlvciI6MSwidmVyc2FvTWVub3IiOjAsImRpcmV0b3JpbyI6Imh0dHA6Ly8xODkuMTEzLjE1LjExODo0MTI1L2FwaS9BdHVhbGl6YWNhby9Bcm1hemVuYWdlbS5hcGsifQ==' com.pdaarmazenagem",
+    "changelog": "auto-changelog -p",
+    "build": "echo '----------------------------------------------------------------\n\n\t\tRuning build command\n\n----------------------------------------------------------------\n\t\t Due to OS mismatches, there\\'s two build commands, for bash and windows.\n\t\t Please run the correct one.'",
+    "build:unix": "android/gradlew build",
+    "build:windows": "android/gradlew.bat build",
+    "s": "adb reverse tcp:8081 tcp:8081 && react-native start"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "1.15.8",
+    "@react-native-community/masked-view": "0.1.11",
+    "@react-native-community/netinfo": "6.0.2",
+    "@react-native-picker/picker": "2.1.0",
+    "@react-navigation/native": "5.9.8",
+    "@react-navigation/stack": "5.14.9",
+    "@unform/core": "2.1.6",
+    "@unform/mobile": "2.1.6",
+    "appcenter": "^4.3.0",
+    "appcenter-analytics": "^4.3.0",
+    "appcenter-crashes": "^4.3.0",
+    "axios": "0.21.4",
+    "babel-plugin-module-resolver": "4.1.0",
+    "react": "17.0.2",
+    "react-native": "0.65.1",
+    "react-native-background-downloader": "2.3.4",
+    "react-native-base64": "^0.2.1",
+    "react-native-camera": "4.2.1",
+    "react-native-dotenv": "3.2.0",
+    "react-native-gesture-handler": "1.10.3",
+    "react-native-modal": "13.0.0",
+    "react-native-reanimated": "2.2.2",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.7.2",
+    "react-native-sound-player": "0.11.1",
+    "react-native-splash-screen": "3.2.0",
+    "react-native-svg": "12.1.1",
+    "react-native-tone-android": "1.0.2",
+    "react-native-vector-icons": "8.1.0",
+    "rn-fetch-blob": "0.12.0",
+    "styled-components": "5.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.5",
+    "@babel/runtime": "7.15.4",
+    "@react-native-community/eslint-config": "3.0.1",
+    "@types/jest": "27.0.2",
+    "@types/react-native": "0.65.1",
+    "@types/react-native-background-downloader": "2.3.4",
+    "@types/react-native-base64": "^0.2.0",
+    "@types/react-native-vector-icons": "6.4.9",
+    "@types/react-test-renderer": "17.0.1",
+    "@types/styled-components": "5.1.14",
+    "@types/styled-components-react-native": "5.1.1",
+    "@typescript-eslint/eslint-plugin": "4.32.0",
+    "@typescript-eslint/parser": "4.32.0",
+    "auto-changelog": "2.3.0",
+    "babel-jest": "27.2.2",
+    "eslint": "7.32.0",
+    "jest": "27.2.2",
+    "metro-react-native-babel-preset": "0.66.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "4.4.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testMatch": [
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/lib/",
+      "<rootDir>/coverage/"
+    ],
+    "rootDir": "__tests__",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false,
+    "breakingPattern": "Release v"
+  }
+}

@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: Npm@1
+    inputs:
+      command: 'install'
+      workingDir: './'
+  - task: Gradle@3
+    inputs:
+      gradleWrapperFile: './android/gradlew'
+      workingDirectory: './android/'
+      tasks: 'assembleRelease'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      sonarQubeRunAnalysis: false
+      spotBugsAnalysis: false
+
+  - task: AndroidSigning@3
+    inputs:
+      apkFiles: 'android/app/build/outputs/apk/*/*.apk'
+      apksignerKeystoreFile: 'pda-mobile.keystore'
+      apksignerKeystorePassword: 'pdamobile'
+      apksignerKeystoreAlias: 'pda-mobile'
+      apksignerKeyPassword: 'pdamobile'
